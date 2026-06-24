@@ -4,11 +4,11 @@
 
 ## 使い方
 
-ビルド不要の静的サイトです。リポジトリ直下でHTTPサーバーを立てて `web/index.html` を開いてください（`fetch` で `data/*.json` を読み込むため `file://` では動作しません）。
+ビルド不要の静的サイトです。リポジトリ直下でHTTPサーバーを立てて `/` を開いてください（`fetch` で `data/*.json` を読み込むため `file://` では動作しません）。
 
 ```sh
 python3 -m http.server 8000
-# ブラウザで http://localhost:8000/web/index.html を開く
+# ブラウザで http://localhost:8000/ を開く
 ```
 
 ## 画面の見方
@@ -49,6 +49,7 @@ scripts/
 web/
   index.html / style.css / app.js  フロントエンド（D3.js, ビルド不要）
   vendor/d3.v7.min.js             D3.js本体（CDN依存を避けるためローカルに同梱）
+index.html                        ルート配信用のエントリーポイント（Vercel/静的ホスティング向け）
 ```
 
 ## 注意事項

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>不審者・治安マップ - 都道府県別 犯罪種別統計</title>
+<link rel="stylesheet" href="web/style.css">
+</head>
+<body>
+<header>
+  <h1>不審者・治安マップ</h1>
+  <p class="subtitle">警察庁「犯罪統計資料」をもとに、都道府県ごとに多い犯罪種別（不審者関連）を可視化</p>
+</header>
+
+<main>
+  <section class="controls">
+    <div class="control-group">
+      <label for="category-select">表示するカテゴリ</label>
+      <select id="category-select">
+        <option value="__total__">全カテゴリ合計</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>表示単位</label>
+      <div class="toggle">
+        <button id="mode-count" class="active" data-mode="count">認知件数</button>
+        <button id="mode-rate" data-mode="rate">人口10万人あたり</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="map-panel">
+      <svg id="map" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet"></svg>
+      <div id="tooltip" class="tooltip hidden"></div>
+      <div id="legend" class="legend"></div>
+    </div>
+
+    <div class="detail-panel">
+      <h2 id="detail-title">都道府県を選択してください</h2>
+      <div id="detail-population" class="detail-population"></div>
+      <div id="detail-chart" class="detail-chart"></div>
+      <h3>全国ランキング（上位10件）</h3>
+      <ol id="ranking-list" class="ranking-list"></ol>
+    </div>
+  </section>
+
+  <footer>
+    <p id="meta-note"></p>
+    <p>出典: <a id="source-link" href="#" target="_blank" rel="noopener">警察庁 犯罪統計資料（e-Stat）</a> ／ 人口: 総務省統計局「令和2年国勢調査」</p>
+  </footer>
+</main>
+
+<script src="web/vendor/d3.v7.min.js"></script>
+<script src="web/app.js"></script>
+</body>
+</html>
